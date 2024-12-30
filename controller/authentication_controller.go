@@ -11,7 +11,7 @@ import (
 	"github.com/golang-jwt/jwt/v5"
 )
 
-var jwtSecretKey = "Letmein123!"
+var jwtSecretKey = "SomePassWordSecretSomeWhere"
 
 // Ensure the JWT_SECRET is loaded
 func init() {
