@@ -1,0 +1,18 @@
+# Air configuration file
+
+# Command to build and run your application
+cmd = "go run main.go"
+
+# Watch for changes in the current directory
+watch_dirs = [
+    "."
+]
+
+# Exclude these directories from watching
+exclude_dirs = [
+    "tmp",
+    "vendor"
+]
+
+# Delay before rebuilding (in milliseconds)
+delay = 1000

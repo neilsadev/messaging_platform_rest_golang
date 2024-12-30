@@ -1,0 +1,31 @@
+# Ignore vendor directory
+vendor/
+
+# Ignore binaries
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Ignore logs
+logs
+*.log
+
+# Ignore environment variables
+.env
+
+# Ignore Docker files
+Dockerfile
+docker-compose*.yml
+
+# Ignore build directories
+dist/
+build/
+
+# Ignore temporary files and folders
+tmp/
+*.tmp
+
+# Ignore OS generated files
+.DS_Store
+Thumbs.db

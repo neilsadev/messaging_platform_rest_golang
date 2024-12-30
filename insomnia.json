@@ -1,0 +1,498 @@
+{
+    "_type": "export",
+    "__export_format": 4,
+    "__export_date": "2024-12-30T00:00:00.000Z",
+    "__export_source": "insomnia.desktop.app:v2024.1.0",
+    "resources": [
+      {
+        "_id": "wrk_1",
+        "parentId": null,
+        "_type": "workspace",
+        "name": "Messaging Platform APIs"
+      },
+      {
+        "_id": "env_1",
+        "parentId": "wrk_1",
+        "_type": "environment",
+        "data": {
+          "base_url": "http://localhost:8080",
+          "jwt_token": ""
+        },
+        "name": "Base Environment"
+      },
+      {
+        "_id": "fld_user",
+        "parentId": "wrk_1",
+        "_type": "request_group",
+        "name": "User APIs"
+      },
+      {
+        "_id": "req_create_user",
+        "parentId": "fld_user",
+        "_type": "request",
+        "name": "Create User",
+        "method": "POST",
+        "url": "{{ base_url }}/users",
+        "body": {
+          "mimeType": "application/json",
+          "text": "{\n  \"email\": \"user@example.com\",\n  \"username\": \"user123\",\n  \"phone\": \"1234567890\"\n}"
+        }
+      },
+      {
+        "_id": "req_get_user",
+        "parentId": "fld_user",
+        "_type": "request",
+        "name": "Get User",
+        "method": "GET",
+        "url": "{{ base_url }}/users/:id",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{ jwt_token }}"
+          }
+        ]
+      },
+      {
+        "_id": "req_update_user",
+        "parentId": "fld_user",
+        "_type": "request",
+        "name": "Update User",
+        "method": "PUT",
+        "url": "{{ base_url }}/users/:id",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{ jwt_token }}"
+          }
+        ],
+        "body": {
+          "mimeType": "application/json",
+          "text": "{\n  \"email\": \"updated_user@example.com\",\n  \"username\": \"updated_user123\",\n  \"avatar_url\": \"https://example.com/avatar.jpg\"\n}"
+        }
+      },
+      {
+        "_id": "req_delete_user",
+        "parentId": "fld_user",
+        "_type": "request",
+        "name": "Delete User",
+        "method": "DELETE",
+        "url": "{{ base_url }}/users/:id",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{ jwt_token }}"
+          }
+        ]
+      },
+      {
+        "_id": "req_list_users",
+        "parentId": "fld_user",
+        "_type": "request",
+        "name": "List Users",
+        "method": "GET",
+        "url": "{{ base_url }}/users",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{ jwt_token }}"
+          }
+        ]
+      },
+      {
+        "_id": "fld_group",
+        "parentId": "wrk_1",
+        "_type": "request_group",
+        "name": "Group APIs"
+      },
+      {
+        "_id": "req_create_group",
+        "parentId": "fld_group",
+        "_type": "request",
+        "name": "Create Group",
+        "method": "POST",
+        "url": "{{ base_url }}/groups",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{ jwt_token }}"
+          }
+        ],
+        "body": {
+          "mimeType": "application/json",
+          "text": "{\n  \"name\": \"New Group\",\n  \"description\": \"Group Description\"\n}"
+        }
+      },
+      {
+        "_id": "req_get_group",
+        "parentId": "fld_group",
+        "_type": "request",
+        "name": "Get Group",
+        "method": "GET",
+        "url": "{{ base_url }}/groups/:id",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{ jwt_token }}"
+          }
+        ]
+      },
+      {
+        "_id": "req_update_group",
+        "parentId": "fld_group",
+        "_type": "request",
+        "name": "Update Group",
+        "method": "PUT",
+        "url": "{{ base_url }}/groups/:id",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{ jwt_token }}"
+          }
+        ],
+        "body": {
+          "mimeType": "application/json",
+          "text": "{\n  \"name\": \"Updated Group\",\n  \"description\": \"Updated Description\"\n}"
+        }
+      },
+      {
+        "_id": "req_delete_group",
+        "parentId": "fld_group",
+        "_type": "request",
+        "name": "Delete Group",
+        "method": "DELETE",
+        "url": "{{ base_url }}/groups/:id",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{ jwt_token }}"
+          }
+        ]
+      },
+      {
+        "_id": "req_list_groups",
+        "parentId": "fld_group",
+        "_type": "request",
+        "name": "List Groups",
+        "method": "GET",
+        "url": "{{ base_url }}/groups",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{ jwt_token }}"
+          }
+        ]
+      },
+      {
+        "_id": "req_add_user_to_group",
+        "parentId": "fld_group",
+        "_type": "request",
+        "name": "Add User to Group",
+        "method": "POST",
+        "url": "{{ base_url }}/groups/:groupUUID/members",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{ jwt_token }}"
+          }
+        ],
+        "body": {
+          "mimeType": "application/json",
+          "text": "{\n  \"user_uuid\": \"user-uuid-123\"\n}"
+        }
+      },
+      {
+        "_id": "req_remove_user_from_group",
+        "parentId": "fld_group",
+        "_type": "request",
+        "name": "Remove User from Group",
+        "method": "DELETE",
+        "url": "{{ base_url }}/groups/:groupUUID/members/:userUUID",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{ jwt_token }}"
+          }
+        ]
+      },
+      {
+        "_id": "fld_membership",
+        "parentId": "wrk_1",
+        "_type": "request_group",
+        "name": "Group Membership APIs"
+      },
+      {
+        "_id": "req_list_group_members",
+        "parentId": "fld_membership",
+        "_type": "request",
+        "name": "List Group Members",
+        "method": "GET",
+        "url": "{{ base_url }}/groups/:groupUUID/members",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{ jwt_token }}"
+          }
+        ]
+      },
+      {
+        "_id": "req_join_group",
+        "parentId": "fld_membership",
+        "_type": "request",
+        "name": "Join Group",
+        "method": "POST",
+        "url": "{{ base_url }}/groups/:groupUUID/members",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{ jwt_token }}"
+          }
+        ],
+        "body": {
+          "mimeType": "application/json",
+          "text": "{\n  \"user_uuid\": \"user-uuid-123\"\n}"
+        }
+      },
+      {
+        "_id": "req_leave_group",
+        "parentId": "fld_membership",
+        "_type": "request",
+        "name": "Leave Group",
+        "method": "DELETE",
+        "url": "{{ base_url }}/groups/:groupUUID/members/:userUUID",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{ jwt_token }}"
+          }
+        ]
+      },
+      {
+        "_id": "fld_messages",
+        "parentId": "wrk_1",
+        "_type": "request_group",
+        "name": "Message APIs"
+      },
+      {
+        "_id": "req_send_message",
+        "parentId": "fld_messages",
+        "_type": "request",
+        "name": "Send Message",
+        "method": "POST",
+        "url": "{{ base_url }}/messages",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{ jwt_token }}"
+          }
+        ],
+        "body": {
+          "mimeType": "application/json",
+          "text": "{\n  \"sender_uuid\": \"user-uuid-123\",\n  \"recipient_uuid\": \"user-uuid-456\",\n  \"content\": \"Hello, User!\",\n  \"attachments\": \"{}\"\n}"
+        }
+      },
+      {
+        "_id": "req_get_message",
+        "parentId": "fld_messages",
+        "_type": "request",
+        "name": "Get Message",
+        "method": "GET",
+        "url": "{{ base_url }}/messages/:messageUUID",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{ jwt_token }}"
+          }
+        ]
+      },
+      {
+        "_id": "req_update_message",
+        "parentId": "fld_messages",
+        "_type": "request",
+        "name": "Update Message",
+        "method": "PUT",
+        "url": "{{ base_url }}/messages/:messageUUID",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{ jwt_token }}"
+          }
+        ],
+        "body": {
+          "mimeType": "application/json",
+          "text": "{\n  \"content\": \"Updated content\"\n}"
+        }
+      },
+      {
+        "_id": "req_delete_message",
+        "parentId": "fld_messages",
+        "_type": "request",
+        "name": "Delete Message",
+        "method": "DELETE",
+        "url": "{{ base_url }}/messages/:messageUUID",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{ jwt_token }}"
+          }
+        ]
+      },
+      {
+        "_id": "req_list_messages",
+        "parentId": "fld_messages",
+        "_type": "request",
+        "name": "List Messages",
+        "method": "GET",
+        "url": "{{ base_url }}/messages?group_uuid=group-uuid-123",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{ jwt_token }}"
+          }
+        ]
+      },
+      {
+        "_id": "fld_threads",
+        "parentId": "wrk_1",
+        "_type": "request_group",
+        "name": "Message Thread APIs"
+      },
+      {
+        "_id": "req_create_thread",
+        "parentId": "fld_threads",
+        "_type": "request",
+        "name": "Create Thread",
+        "method": "POST",
+        "url": "{{ base_url }}/threads",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{ jwt_token }}"
+          }
+        ],
+        "body": {
+          "mimeType": "application/json",
+          "text": "{\n  \"parent_message_uuid\": \"parent-message-uuid-123\",\n  \"child_message_uuid\": \"child-message-uuid-456\"\n}"
+        }
+      },
+      {
+        "_id": "req_get_thread",
+        "parentId": "fld_threads",
+        "_type": "request",
+        "name": "Get Thread",
+        "method": "GET",
+        "url": "{{ base_url }}/threads/:parentMessageUUID",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{ jwt_token }}"
+          }
+        ]
+      },
+      {
+        "_id": "fld_reactions",
+        "parentId": "wrk_1",
+        "_type": "request_group",
+        "name": "Reaction APIs"
+      },
+      {
+        "_id": "req_add_reaction",
+        "parentId": "fld_reactions",
+        "_type": "request",
+        "name": "Add Reaction",
+        "method": "POST",
+        "url": "{{ base_url }}/reactions",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{ jwt_token }}"
+          }
+        ],
+        "body": {
+          "mimeType": "application/json",
+          "text": "{\n  \"message_uuid\": \"message-uuid-123\",\n  \"user_uuid\": \"user-uuid-456\",\n  \"reaction\": \"❤️\"\n}"
+        }
+      },
+      {
+        "_id": "req_remove_reaction",
+        "parentId": "fld_reactions",
+        "_type": "request",
+        "name": "Remove Reaction",
+        "method": "DELETE",
+        "url": "{{ base_url }}/reactions/:reactionUUID",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{ jwt_token }}"
+          }
+        ]
+      },
+      {
+        "_id": "req_list_reactions",
+        "parentId": "fld_reactions",
+        "_type": "request",
+        "name": "List Reactions",
+        "method": "GET",
+        "url": "{{ base_url }}/reactions/:messageUUID",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{ jwt_token }}"
+          }
+        ]
+      },
+      {
+        "_id": "fld_utility",
+        "parentId": "wrk_1",
+        "_type": "request_group",
+        "name": "Utility APIs"
+      },
+      {
+        "_id": "req_health_check",
+        "parentId": "fld_utility",
+        "_type": "request",
+        "name": "Health Check",
+        "method": "GET",
+        "url": "{{ base_url }}/utility/health"
+      },
+      {
+        "_id": "req_file_upload",
+        "parentId": "fld_utility",
+        "_type": "request",
+        "name": "File Upload",
+        "method": "POST",
+        "url": "{{ base_url }}/utility/file-upload",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{ jwt_token }}"
+          }
+        ],
+        "body": {
+          "mimeType": "multipart/form-data",
+          "params": [
+            {
+              "name": "file",
+              "fileName": "example.txt",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "_id": "req_search",
+        "parentId": "fld_utility",
+        "_type": "request",
+        "name": "Search Users/Groups",
+        "method": "GET",
+        "url": "{{ base_url }}/utility/search?q=query&type=users",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{ jwt_token }}"
+          }
+        ]
+      }
+    ]
+  }
+  
+  
